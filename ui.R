@@ -6,6 +6,10 @@
 #
 
 library(shiny)
+library(ggplot2)
+library(caret)
+library(randomForest)
+library(e1071)
 
 shinyUI(fluidPage(
 
@@ -23,10 +27,20 @@ shinyUI(fluidPage(
 
     # Show a plot of the generated distribution
     mainPanel(
-        plotOutput("plot1"),
-        h3("Predicted Iris species"),
-        h3("using a random forest model:"),
-        textOutput("pred1")
+        tabsetPanel(type = "tabs",
+                    tabPanel("Plot",plotOutput("plot1"),
+                             h3("Predicted Iris species"),
+                             h3("using a random forest model:"),
+                             textOutput("pred1")),
+                    tabPanel("Help",h5("This is a shiny application generated as part of the requirements
+                                       for the 'Data Products' course in Coursera. In this application,
+                                       the user can insert (using the slidebar) the length and the width
+                                       of a hypothetical iris flower, and then a random forest model
+                                       will use these values to predict the specific iris species of the
+                                       flower."),
+                             h5("The source server.R and ui.R files can be found in github:"),
+                             h5(a("ShinyProject Repository",href = "https://github.com/mbenhamo/ShinyProject"))))
+        
     )
   )
 ))

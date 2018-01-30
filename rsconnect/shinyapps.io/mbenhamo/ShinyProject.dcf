@@ -1,0 +1,12 @@
+name: ShinyProject
+title: ShinyProject
+username:
+account: mbenhamo
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 266370
+bundleId: 1199086
+url: https://mbenhamo.shinyapps.io/ShinyProject/
+when: 1517314822.17645
+asMultiple: FALSE
+asStatic: FALSE

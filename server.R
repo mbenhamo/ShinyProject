@@ -6,13 +6,15 @@
 #
 
 library(shiny)
+library(ggplot2)
+library(caret)
+library(randomForest)
+library(e1071)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
     data(iris)
-    library(ggplot2)
-    library(caret)
-    library(randomForest)
+    
     
     inTrain <- createDataPartition(y=iris$Species,
                                    p=0.7, list=FALSE)
@@ -52,7 +54,7 @@ shinyServer(function(input, output) {
         p.len <- input$p.len
         p.wid <- input$p.wid
         data.frame(Petal.Length=p.len,Petal.Width = p.wid,
-                   Species = predict(model1,newdata = newdat))
+                   Species = predict(model1,newdata = data.frame(Petal.Length=p.len,Petal.Width = p.wid)))
      })
     
 
